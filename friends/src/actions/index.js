@@ -5,6 +5,7 @@ export const FETCH_FRIENDS_SUCCESS = "FETCH_FRIENDS_SUCCESS";
 export const FETCH_FRIENDS_FAIL = "FETCH_FRIENDS_FAIL";
 
 export const getFriends = () => dispatch => {
+  console.log("test");
   dispatch({ type: FETCHING_FRIENDS });
   Axios.get("http://localhost:5000/api/friends")
     .then(res => dispatch({ type: FETCH_FRIENDS_SUCCESS, payload: res.data }))
