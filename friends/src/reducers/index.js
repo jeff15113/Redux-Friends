@@ -28,11 +28,13 @@ export default (state = initialState, action) => {
         ...state,
         friends: action.payload,
         fetchingFriends: false,
-        error: null
+        error: null,
+        isAdding: false
       };
 
     case ADDING_FRIEND:
       return { ...state, isAdding: true };
+
     default:
       return state;
   }

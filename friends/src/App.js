@@ -28,7 +28,6 @@ class App extends Component {
 
   addFriend = e => {
     e.preventDefault();
-    // const task = this.state.task;
     const friend = this.state.friend;
     const newfriend = {
       name: friend.name,
@@ -67,9 +66,7 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
-
 export default connect(
-  mapStateToProps,
+  null,
   { getFriends, addFriend }
 )(App);
