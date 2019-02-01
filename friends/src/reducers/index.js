@@ -1,4 +1,8 @@
-import { FETCHING_FRIENDS, FETCH_FRIENDS_SUCCESS } from "../actions";
+import {
+  FETCHING_FRIENDS,
+  FETCH_FRIENDS_SUCCESS,
+  ADDING_FRIEND
+} from "../actions";
 
 const initialState = {
   fetchingFriends: false,
@@ -9,6 +13,7 @@ const initialState = {
   friendUpdated: false,
   deletingFriend: false,
   friendDeleted: false,
+  isAdding: false,
   friends: [],
   error: null
 };
@@ -25,6 +30,9 @@ export default (state = initialState, action) => {
         fetchingFriends: false,
         error: null
       };
+
+    case ADDING_FRIEND:
+      return { ...state, isAdding: true };
     default:
       return state;
   }

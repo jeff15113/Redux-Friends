@@ -1,6 +1,7 @@
 import React from "react";
 import Friend from "./friend";
 import ConditionalCard from "./ConditionalCard";
+import { addingFriend } from "../../actions";
 import { connect } from "react-redux";
 
 const FriendsList = props => {
@@ -14,21 +15,25 @@ const FriendsList = props => {
           removeFriend={props.removeFriend}
         />
       ))}
-      <ConditionalCard
-        handleChanges={props.handleChanges}
-        add={props.add}
-        adding={props.adding}
-        addFriend={props.addFriend}
-      />
+      {!props.fetchingfriends && (
+        <ConditionalCard
+          handleChanges={props.handleChanges}
+          addFriend={props.addFriend}
+          add={props.addingFriend}
+          adding={props.adding}
+        />
+      )}
     </div>
   );
 };
 
 const mapStateToProps = state => ({
-  friendslist: state.friends
+  friendslist: state.friends,
+  fetchingfriends: state.fetchingFriends,
+  adding: state.isAdding
 });
 
 export default connect(
   mapStateToProps,
-  {}
+  { addingFriend }
 )(FriendsList);
